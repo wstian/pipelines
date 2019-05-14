@@ -181,7 +181,7 @@ export default class SideNav extends React.Component<SideNavProps, SideNavState>
     this.state = {
       collapsed,
       // Set jupyterHubAvailable to false so UI don't show Jupyter Hub link
-      jupyterHubAvailable: false,
+      jupyterHubAvailable: true,
       manualCollapseState: LocalStorage.hasKey(LocalStorageKey.navbarCollapsed),
     };
   }
