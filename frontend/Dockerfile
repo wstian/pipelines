@@ -7,6 +7,8 @@ WORKDIR ./src
 
 COPY . .
 
+RUN pwd && ls -alh
+
 WORKDIR ./frontend
 
 # Workaround for ppc64le since phantomjs does not support ppc64le
