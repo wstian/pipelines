@@ -220,6 +220,7 @@ export default class SideNav extends React.Component<SideNavProps, SideNavState>
       inactive: sideNavColors.fgDefault,
     };
 
+    console.log(`[debug] jupyterhubAvailable: ${this.state.jupyterHubAvailable}`)
     return (
       <div id='sideNav' className={classes(css.root, commonCss.flexColumn, commonCss.noShrink, collapsed && css.collapsedRoot)}>
         <div style={{ flexGrow: 1 }}>
