@@ -1,4 +1,4 @@
-FROM node:9.4.0 as build
+FROM node:9.4.0
 
 ARG COMMIT_HASH
 ARG DATE
@@ -31,9 +31,8 @@ RUN node gen_licenses . && node gen_licenses server && \
     cat dependency-licenses.txt >> server/dependency-licenses.txt
 
 RUN pwd && ls -alh
-RUN mkdir /server && mkdir /client
-COPY ./server /server
-COPY ./build /client
+RUN mv ./server /server
+RUN mv ./build /client
 
 WORKDIR /server
 
