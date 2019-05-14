@@ -7,8 +7,6 @@ WORKDIR ./src
 
 COPY . .
 
-RUN pwd && ls -alh
-
 WORKDIR ./frontend
 
 # Workaround for ppc64le since phantomjs does not support ppc64le
@@ -21,7 +19,6 @@ RUN if [ "$(uname -m)" = "ppc64le" ]; then \
 RUN npm install && npm run postinstall
 RUN npm run build
 
-RUN pwd && ls -alh
 
 RUN mkdir -p ./server/dist && \
     echo ${COMMIT_HASH} > ./server/dist/COMMIT_HASH && \
@@ -33,8 +30,8 @@ RUN npm i -D license-checker
 RUN node gen_licenses . && node gen_licenses server && \
     cat dependency-licenses.txt >> server/dependency-licenses.txt
 
-# FROM node:9.4.0-alpine
-
+RUN pwd && ls -alh
+RUN mkdir /server && mkdir /client
 COPY ./server /server
 COPY ./build /client
 
