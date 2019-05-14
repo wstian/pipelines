@@ -19,6 +19,8 @@ RUN if [ "$(uname -m)" = "ppc64le" ]; then \
 RUN npm install && npm run postinstall
 RUN npm run build
 
+RUN pwd && ls -alh
+
 RUN mkdir -p ./server/dist && \
     echo ${COMMIT_HASH} > ./server/dist/COMMIT_HASH && \
     echo ${DATE} > ./server/dist/BUILD_DATE
